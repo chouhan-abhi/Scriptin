@@ -4,7 +4,7 @@ import Footer from "./footer";
 import Header from "./header";
 
 const Layout = () => {
-    const DUMMY_SCRIPTS = ["Card 1" , 'Card2', 'Card 3', 'Card 4', 'Card 5'];
+    const DUMMY_SCRIPTS = [{heading: 'Card1', content: 'Helloworld'}];
   
     const [scripts, updateScripts] = useState(DUMMY_SCRIPTS);
   

@@ -1,8 +1,16 @@
+// @ts-nocheck
 import { Editor } from "@monaco-editor/react";
 import { useState } from "react";
 
+interface IContent{
+  heading: string,
+  content: string,
+  cardId: number,
+  dateCreated: string,
+}
+
 const Footer = ({addScript}) => {
-    const [content, updateContent] = useState<string | undefined>();
+    const [content, updateContent] = useState<IContent | undefined>({});
 
     const footer = {
       width: '98vw',
@@ -17,23 +25,41 @@ const Footer = ({addScript}) => {
       padding: '1vw'
     }
 
+    const handleContentUpdate = (updatedContent: string) => {
+      updateContent( prev => {
+        return {...prev, content: updatedContent}
+      });
+    }
+
+    const handleAddNewCard = () => {
+      const splitedContent = content?.content?.split('#');
+      const heading = splitedContent?.[0] || 'Untitled-' + Date.now();
+      const parsedContent = (content?.content.replace(heading+'#', ''))?.trim();
+      const tempContent: IContent = { heading, content: parsedContent, cardId: Date.now(), dateCreated: new Date().toLocaleString() };
+      
+      addScript( prev => {return [...prev, tempContent]});
+      updateContent(undefined);
+    }
+
     const ActionBar = () => (
       <div style={ActionBarStyle}>
-        <button onClick={() => addScript( prev => {return [...prev, content]})}> Save </button>
+        <button onClick={() => handleAddNewCard()}> Save </button>
       </div>
     );
   
     return (
       <footer style={footer}>
-        <Editor
-          width="98vw"
-          language="javascript"
-          theme="vs-dark"
-          value={content}
-          className="EditionBoxStyle"
-          onChange= { (updatedContent) => updateContent(updatedContent)}
-        />
-        <ActionBar />
+        <div className="EditionBoxStyle">
+          <Editor
+            language="javascript"
+            height='200px'
+            width="98%"
+            theme="vs-dark"
+            value={content?.content || ''}
+            onChange={ (updatedContent: string) => handleContentUpdate(updatedContent)}
+          />
+          <ActionBar />
+        </div>
       </footer>
     )
   }
