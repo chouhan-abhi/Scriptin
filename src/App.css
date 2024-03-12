@@ -1,4 +1,17 @@
 .EditionBoxStyle{
-    box-shadow: 0px 0px 10px 6px #000000e0;
+    box-shadow: 0px 0px 3px 2px #343436;
     min-height: 16vh;
+}
+
+.Cards{
+    display: inline-grid;
+    max-width: 220px;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px 2px #343436;
+    max-height: 24vh;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
