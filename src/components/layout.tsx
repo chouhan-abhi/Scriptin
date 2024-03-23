@@ -1,18 +1,16 @@
 import { useState } from "react";
 import Body from "./body";
-import Footer from "./footer";
 import Header from "./header";
 
 const Layout = () => {
-    const DUMMY_SCRIPTS = [{heading: 'Card1', content: 'Helloworld'}];
+    const DUMMY_SCRIPTS = [];
   
     const [scripts, updateScripts] = useState(DUMMY_SCRIPTS);
   
     return (
       <div>
         <Header />
-        <Body scripts={scripts}/>
-        <Footer addScript={updateScripts} />
+        <Body scripts={scripts} addScript={updateScripts} />
       </div>
     );
   }

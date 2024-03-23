@@ -27,8 +27,8 @@ function Quotes() {
 
   return (
     <>
-      <div className="Cards">
-        <div style={{ backdropFilter: 'blur(8px)', padding: '8opx'}}>
+      <div className="Cards QuotesCard">
+        <div>
         <b>Today's Quote</b>
         <p>
           "{quote?.content || 'Hold on; we are brewing something for you...' }"

@@ -1,17 +1,48 @@
-.EditionBoxStyle{
+.EditionBoxStyle {
     box-shadow: 0px 0px 3px 2px #343436;
     min-height: 16vh;
 }
 
-.Cards{
+.Cards {
     display: inline-grid;
-    max-width: 220px;
-    border: 1px solid black;
+    border: 1px solid #343436;
     margin: 4px;
     padding: 8px;
     border-radius: 4px;
-    box-shadow: 0px 0px 3px 2px #343436;
+    box-shadow: 0px 0px 3px 1px #343436;
     max-height: 24vh;
     overflow: hidden;
     overflow-wrap: break-word;
+}
+
+.Cards:hover {
+    box-shadow: 0px 0px 3px 2px #343436;
+}
+
+.QuotesCard {
+    width: 90vw;
+    background-color: #343436;
+    box-shadow: none;
+    padding: 2vw
+}
+
+.CounterCard {
+    width: 90vw;
+    align-items: center;
+    text-align: center;
+
+    .CounterHeading {
+        border: none;
+        background-color: transparent;
+        border-bottom: solid;
+        border-bottom-color: #343436;
+        margin-bottom: 1vh;
+        text-align: center;
+        line-height: 2;
+    }
+
+    .CounterButton {
+        padding: 3vh 0;
+        font-size: 5rem;
+    }
 }
