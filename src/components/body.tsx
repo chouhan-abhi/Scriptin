@@ -1,8 +1,9 @@
 // @ts-nocheck
-import { useMemo, useState } from "react";
-import Quotes from "./quotes";
+import { Suspense, useMemo, useState, lazy } from "react";
 import Footer from "./footer";
 import CounterCard from "./features/counter";
+
+const Quotes = lazy(() => import('./quotes'));
 
 const Body = ({ scripts, addScript }) => {
 
@@ -47,7 +48,9 @@ const Body = ({ scripts, addScript }) => {
 
   return (
     <div>
-      <Quotes />
+      <Suspense fallback="Loading...">
+        <Quotes />
+      </Suspense>
       <Notes />
       <CounterButton />
       <AddScriptButton />

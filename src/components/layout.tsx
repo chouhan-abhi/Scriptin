@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import Body from "./body";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Header from "./header";
 import { scriptListService } from "../service";
+
+const Body = lazy(() =>  import('./body'));
 
 export interface IScript {
   id: string;
@@ -24,13 +25,15 @@ const Layout = () => {
   }
 
   useEffect(()=> {
-    updateScripts(getList())
+    updateScripts(getList() || [])
   }, [])
 
   return (
     <div>
       <Header />
-      <Body scripts={scripts} addScript={handleScriptListUpdate} />
+      <Suspense fallback='Loading...'>
+        <Body scripts={scripts} addScript={handleScriptListUpdate} />
+      </Suspense>
     </div>
   );
 }
