@@ -4,6 +4,7 @@
 }
 
 .Cards {
+    max-width: 90vw;
     display: inline-grid;
     border: 1px solid #343436;
     margin: 4px;
@@ -13,6 +14,7 @@
     max-height: 25vh;
     overflow: hidden;
     overflow-wrap: break-word;
+    text-overflow: ellipsis;
 }
 
 .Cards:hover {
@@ -30,7 +32,7 @@
     width: 90vw;
     align-items: center;
     text-align: center;
-    max-height: max-content;
+    max-height: max-content !important;
 
     .CounterHeading {
         border: none;

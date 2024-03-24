@@ -10,17 +10,27 @@ const Body = ({ scripts, addScript }) => {
   const defaultToggles = { isAddCounter: false, isAddScript: false };
   const [toggles, updateToggles] = useState(defaultToggles);
 
+  const Note = ({note, index}) => {
+    const [isExpanded, toggleSize] = useState(false);
+    return (
+      <p className={isExpanded ? 'Cards CounterCard' : 'Cards'} key={'card' + index} onClick={() => toggleSize( prev => !prev)}>
+        <div>
+          <b><u>{note?.heading}</u></b> 
+          {note?.type ? <span className="Tag">{note.type}</span> : ''}
+        </div>
+        <div>
+          <pre>{note?.content}</pre>
+          <span className="DateContainer">Date: {note?.dateCreated}</span>
+        </div>
+      </p>
+    )
+  }
+
   const Notes = () => {
     return (
       <p>
         {scripts?.length ? scripts.map((script: any, index) => (
-          <p className="Cards" key={'card' + index}>
-            <div><b><u>{script?.heading}</u></b> {script?.type ? <span className="Tag">{script.type}</span> : '' }</div>
-            <div>
-              <pre>{script?.content}</pre>
-              <span className="DateContainer">Date: {script?.dateCreated}</span>
-            </div>
-          </p>
+          <Note note={script} />
         )) : ''}
       </p>
     )
@@ -28,7 +38,7 @@ const Body = ({ scripts, addScript }) => {
 
   const CounterButton = () => {
     return (
-      <div className="Cards Button" onClick={() => updateToggles(prev => ({...prev, isAddCounter: !prev.isAddCounter }))}>
+      <div className="Cards Button" onClick={() => updateToggles(prev => ({ ...prev, isAddCounter: !prev.isAddCounter }))}>
         {!toggles.isAddCounter ? 'Start' : 'Cancel'} Counter
       </div>
     )
@@ -36,14 +46,14 @@ const Body = ({ scripts, addScript }) => {
 
   const AddScriptButton = () => {
     return (
-      <div className="Cards Button" onClick={() => updateToggles(prev => ({...prev, isAddScript: !prev.isAddScript }))}>
+      <div className="Cards Button" onClick={() => updateToggles(prev => ({ ...prev, isAddScript: !prev.isAddScript }))}>
         {!toggles.isAddScript ? 'Add' : 'Cancel'} Script
       </div>
     )
   }
 
   const newCounterIndexNumber = useMemo(() => {
-    return (scripts?.filter( script => script.type === 'COUNTER')?.length || 0) + 1;
+    return (scripts?.filter(script => script.type === 'COUNTER')?.length || 0) + 1;
   }, [scripts]);
 
   return (
