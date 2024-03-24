@@ -51,11 +51,11 @@ const Body = ({ scripts, addScript }) => {
       <Suspense fallback="Loading...">
         <Quotes />
       </Suspense>
-      <Notes />
       <CounterButton />
       <AddScriptButton />
-      {toggles.isAddScript && <Footer addScript={addScript} />}
       {toggles.isAddCounter && <CounterCard cardIndex={newCounterIndexNumber} addScript={addScript} />}
+      <Notes />
+      {toggles.isAddScript && <Footer addScript={addScript} />}
     </div>)
 }
 
