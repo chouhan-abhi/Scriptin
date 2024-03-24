@@ -1,0 +1,22 @@
+{
+  "short_name": "ScriptIn",
+  "name": "ScriptIn",
+  "description": "Your day to day event ledger or reminder. Use how ever you fit.",
+  "icons": [
+    {
+      "src": "notes.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "notes.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "potrait",
+  "theme_color": "#343436",
+  "background_color": "#242424"
+}

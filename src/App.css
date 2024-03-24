@@ -10,7 +10,7 @@
     padding: 8px;
     border-radius: 4px;
     box-shadow: 0px 0px 3px 1px #343436;
-    max-height: 26.8vh;
+    max-height: 25vh;
     overflow: hidden;
     overflow-wrap: break-word;
 }
@@ -30,6 +30,7 @@
     width: 90vw;
     align-items: center;
     text-align: center;
+    max-height: max-content;
 
     .CounterHeading {
         border: none;
