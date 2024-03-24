@@ -1,16 +1,10 @@
 // @ts-nocheck
 import { Editor } from "@monaco-editor/react";
 import { useState } from "react";
-
-interface IContent{
-  heading: string,
-  content: string,
-  cardId: number,
-  dateCreated: string,
-}
+import { IScript } from "./layout";
 
 const Footer = ({addScript}) => {
-    const [content, updateContent] = useState<IContent | undefined>({});
+    const [content, updateContent] = useState<IScript | undefined>({});
 
     const footer = {
       width: '98vw',
@@ -35,9 +29,10 @@ const Footer = ({addScript}) => {
       const splitedContent = content?.content?.split('#');
       const heading = splitedContent?.[0] || 'Untitled-' + Date.now();
       const parsedContent = (content?.content.replace(heading+'#', ''))?.trim();
-      const tempContent: IContent = { heading, content: parsedContent, cardId: Date.now(), dateCreated: new Date().toLocaleString() };
+      const type = 'NOTE'
+      const tempContent: IScript = { type, heading, content: parsedContent, id: Date.now(), dateCreated: new Date().toLocaleString() };
       
-      addScript( prev => {return [...prev, tempContent]});
+      addScript(tempContent);
       updateContent(undefined);
     }
 

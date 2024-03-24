@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import Quotes from "./quotes";
 import Footer from "./footer";
+import CounterCard from "./features/counter";
 
 const Body = ({ scripts, addScript }) => {
 
@@ -13,9 +14,10 @@ const Body = ({ scripts, addScript }) => {
       <p>
         {scripts?.length ? scripts.map((script: any, index) => (
           <p className="Cards" key={'card' + index}>
-            <b>{script?.heading}</b>
+            <div><b><u>{script?.heading}</u></b> {script?.type ? <span className="Tag">{script.type}</span> : '' }</div>
             <div>
               <pre>{script?.content}</pre>
+              <span className="DateContainer">Date: {script?.dateCreated}</span>
             </div>
           </p>
         )) : ''}
@@ -23,17 +25,17 @@ const Body = ({ scripts, addScript }) => {
     )
   }
 
-  const StartCounter = () => {
+  const CounterButton = () => {
     return (
-      <div className="Cards" onClick={() => updateToggles(prev => ({...prev, isAddCounter: !prev.isAddCounter }))}>
+      <div className="Cards Button" onClick={() => updateToggles(prev => ({...prev, isAddCounter: !prev.isAddCounter }))}>
         {!toggles.isAddCounter ? 'Start' : 'Cancel'} Counter
       </div>
     )
   }
 
-  const ShowAddScriptCard = () => {
+  const AddScriptButton = () => {
     return (
-      <div className="Cards" onClick={() => updateToggles(prev => ({...prev, isAddScript: !prev.isAddScript }))}>
+      <div className="Cards Button" onClick={() => updateToggles(prev => ({...prev, isAddScript: !prev.isAddScript }))}>
         {!toggles.isAddScript ? 'Add' : 'Cancel'} Script
       </div>
     )
@@ -43,24 +45,14 @@ const Body = ({ scripts, addScript }) => {
     return (scripts?.filter( script => script.type === 'COUNTER')?.length || 0) + 1;
   }, [scripts]);
 
-  const CounterCard = () => {
-    const [count, updateCount] = useState(0);
-    return (
-      <p className="Cards CounterCard">
-        <input className="CounterHeading" value={`Counter ${newCounterIndexNumber}`}/>
-        <span className="CounterButton" onClick={() => updateCount(prev => prev + 1)}>{count}</span>
-      </p>
-    )
-  }
-
   return (
     <div>
       <Quotes />
       <Notes />
-      <StartCounter />
-      <ShowAddScriptCard />
+      <CounterButton />
+      <AddScriptButton />
       {toggles.isAddScript && <Footer addScript={addScript} />}
-      {toggles.isAddCounter && <CounterCard />}
+      {toggles.isAddCounter && <CounterCard cardIndex={newCounterIndexNumber} addScript={addScript} />}
     </div>)
 }
 

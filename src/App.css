@@ -10,7 +10,7 @@
     padding: 8px;
     border-radius: 4px;
     box-shadow: 0px 0px 3px 1px #343436;
-    max-height: 24vh;
+    max-height: 26.8vh;
     overflow: hidden;
     overflow-wrap: break-word;
 }
@@ -42,7 +42,35 @@
     }
 
     .CounterButton {
-        padding: 3vh 0;
-        font-size: 5rem;
+        padding: 2vh 0;
+        font-size: 6rem;
     }
+}
+
+.Button {
+    margin-left: 4px;
+    background-color: #343436;
+    border: none;
+    padding: 6px 6vw;
+    border-radius: 4px;
+    display: inline-block;
+    box-shadow: none;
+}
+
+.Button:hover {
+    box-shadow: 0px 0px 3px 1px #343436;
+}
+
+.DateContainer {
+    font-size: x-small;
+    color: #8e8e92;
+}
+
+.Tag {
+    font-size: x-small;
+    color: #8e8e92;
+    border: 1px solid #8e8e92;
+    margin: 0px 2px;
+    border-radius: 4px;
+    padding: 2px;
 }
