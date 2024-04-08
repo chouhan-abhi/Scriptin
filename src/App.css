@@ -1,79 +1,42 @@
-.EditionBoxStyle {
-    box-shadow: 0px 0px 3px 2px #343436;
-    min-height: 16vh;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.Cards {
-    max-width: 90vw;
-    display: inline-grid;
-    border: 1px solid #343436;
-    margin: 4px;
-    padding: 8px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 3px 1px #343436;
-    max-height: 25vh;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.Cards:hover {
-    box-shadow: 0px 0px 3px 2px #343436;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.QuotesCard {
-    width: 90vw;
-    background-color: #343436;
-    box-shadow: none;
-    padding: 2vw
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.CounterCard {
-    width: 90vw;
-    align-items: center;
-    text-align: center;
-    max-height: max-content !important;
-
-    .CounterHeading {
-        border: none;
-        background-color: transparent;
-        border-bottom: solid;
-        border-bottom-color: #343436;
-        margin-bottom: 1vh;
-        text-align: center;
-        line-height: 2;
-    }
-
-    .CounterButton {
-        padding: 2vh 0;
-        font-size: 6rem;
-    }
+.card {
+  padding: 2em;
 }
 
-.Button {
-    margin-left: 4px;
-    background-color: #343436;
-    border: none;
-    padding: 6px 6vw;
-    border-radius: 4px;
-    display: inline-block;
-    box-shadow: none;
-}
-
-.Button:hover {
-    box-shadow: 0px 0px 3px 1px #343436;
-}
-
-.DateContainer {
-    font-size: x-small;
-    color: #8e8e92;
-}
-
-.Tag {
-    font-size: x-small;
-    color: #8e8e92;
-    border: 1px solid #8e8e92;
-    margin: 0px 2px;
-    border-radius: 4px;
-    padding: 2px;
+.read-the-docs {
+  color: #888;
 }
