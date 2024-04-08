@@ -1,0 +1,62 @@
+.loader-animated {
+  background: linear-gradient(88deg, #b4b7b6, #ffffff);
+  background-size: 400% 400%;
+
+  -webkit-animation: Loader 7s ease infinite;
+  -moz-animation: Loader 7s ease infinite;
+  animation: Loader 7s ease infinite;
+}
+
+@-webkit-keyframes Loader {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-moz-keyframes Loader {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes Loader {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+
+.loader-container {
+  background-color: floralwhite;
+  width: 92vw;
+  min-height: 20%;
+  margin: 1vh 0px;
+  padding: 1vh 1vw;
+  border-radius: 6px;
+  line-height: 1.4rem;;
+
+  .loader-heading {
+    width: 50%;
+    margin: 1vh 0px;
+  }
+
+  .loader-content {
+    width: 94%;
+    margin: 1vh 0px;
+  }
+}
